@@ -125,103 +125,103 @@ $(document).ready(function () {
  
 
  //---------------new Add
- function validate_user_code() {
-   var validate_user_code = new RegExp("^[a-zA-Z]+$");
-   user_code = $("#user_code").val();
-   if (validate_user_code.test(user_code)) {
-     user_code_error = false;
-     $("#user_code").css("border", "2px solid green");
-   } else {
-     $("#user_code").css("border", "2px solid red");
-     user_code_error = true;
-   }
- }
- function validate_first_name() {
-   var validate_first_name = new RegExp("^[a-zA-Z]+$");
-   first_name = $("#first_name").val();
-   if (validate_first_name.test(first_name)) {
-     first_name_error = false;
-     $("#first_name").css("border", "2px solid green");
-   } else {
-     first_name_error = true;
-     $("#first_name").css("border", "2px solid red");
-   }
- }
+//  function validate_user_code() {
+//    var validate_user_code = new RegExp("^[a-zA-Z]+$");
+//    user_code = $("#user_code").val();
+//    if (validate_user_code.test(user_code)) {
+//      user_code_error = false;
+//      $("#user_code").css("border", "2px solid green");
+//    } else {
+//      $("#user_code").css("border", "2px solid red");
+//      user_code_error = true;
+//    }
+//  }
+//  function validate_first_name() {
+//    var validate_first_name = new RegExp("^[a-zA-Z]+$");
+//    first_name = $("#first_name").val();
+//    if (validate_first_name.test(first_name)) {
+//      first_name_error = false;
+//      $("#first_name").css("border", "2px solid green");
+//    } else {
+//      first_name_error = true;
+//      $("#first_name").css("border", "2px solid red");
+//    }
+//  }
  
- function validate_middle_name() {
-   var validate_middle_name = new RegExp("^[a-zA-Z]+$");
-   middle_name = $("#middle_name").val();
-   if (validate_middle_name.test(middle_name)) {
-     middle_name_error = false;
-     $("#middle_name").css("border", "2px solid green");
-   } else {
-     $("#middle_name").css("border", "2px solid red");
-     middle_name_error = true;
-   }
- }
+//  function validate_middle_name() {
+//    var validate_middle_name = new RegExp("^[a-zA-Z]+$");
+//    middle_name = $("#middle_name").val();
+//    if (validate_middle_name.test(middle_name)) {
+//      middle_name_error = false;
+//      $("#middle_name").css("border", "2px solid green");
+//    } else {
+//      $("#middle_name").css("border", "2px solid red");
+//      middle_name_error = true;
+//    }
+//  }
  
- function validate_last_name() {
-   var validate_last_name = new RegExp("^[a-zA-Z]+$");
-   last_name = $("#last_name").val();
-   if (validate_last_name.test(last_name)) {
-     last_name_error = false;
-     $("#last_name").css("border", "2px solid green");
-   } else {
-     $("#last_name").css("border", "2px solid red");
-     last_name_error = true;
-   }
- }
+//  function validate_last_name() {
+//    var validate_last_name = new RegExp("^[a-zA-Z]+$");
+//    last_name = $("#last_name").val();
+//    if (validate_last_name.test(last_name)) {
+//      last_name_error = false;
+//      $("#last_name").css("border", "2px solid green");
+//    } else {
+//      $("#last_name").css("border", "2px solid red");
+//      last_name_error = true;
+//    }
+//  }
  
- function validate_phone_number() {
-   var validate_phone_number = new RegExp("^[+1-9][0-9]{2,12}$");
-   phone_number = $("#phone_number").val();
-   if (validate_phone_number.test(phone_number)) {
-     phone_number_error = false;
-     $("#phone_number").css("border", "2px solid green");
-   } else {
-     $("#phone_number").css("border", "2px solid red");
-     phone_number_error = true;
-   }
- }
+//  function validate_phone_number() {
+//    var validate_phone_number = new RegExp("^[+1-9][0-9]{2,12}$");
+//    phone_number = $("#phone_number").val();
+//    if (validate_phone_number.test(phone_number)) {
+//      phone_number_error = false;
+//      $("#phone_number").css("border", "2px solid green");
+//    } else {
+//      $("#phone_number").css("border", "2px solid red");
+//      phone_number_error = true;
+//    }
+//  }
  
- function validate_email() {
-   var validate_email = /^\S+@\S+\.\S+$/;
-   email = $("#email").val();
-   if (validate_email.test(email)) {
-     email_error = false;
-     $("#email").css("border", "2px solid green");
-   } else {
-     $("#email").css("border", "2px solid red");
-     email_error = true;
-   }
- }
+//  function validate_email() {
+//    var validate_email = /^\S+@\S+\.\S+$/;
+//    email = $("#email").val();
+//    if (validate_email.test(email)) {
+//      email_error = false;
+//      $("#email").css("border", "2px solid green");
+//    } else {
+//      $("#email").css("border", "2px solid red");
+//      email_error = true;
+//    }
+//  }
  
  $("#exampleModal").on(
    "click",
    "#add_entry",
    function (event) {
-     var temp_phone_number;
-     console.log("hello");
-     event.preventDefault();
-     validate_user_code();
-     validate_first_name();
-     validate_middle_name();
-     validate_last_name();
-     validate_phone_number();
-     validate_email();
+    //  var temp_phone_number;
+    //  console.log("hello");
+    //  event.preventDefault();
+    //  validate_user_code();
+    //  validate_first_name();
+    //  validate_middle_name();
+    //  validate_last_name();
+    //  validate_phone_number();
+    //  validate_email();
  
      var user_code = $("#user_code").val();
      var first_name = $("#first_name").val();
      var middle_name = $("#middle_name").val();
      var last_name = $("#last_name").val();
  
-     temp_phone_number = $("#phone_number").val();
+     var temp_phone_number = $("#phone_number").val();
  
-     phone_country_code = temp_phone_number.slice(0, 3);
+     var phone_country_code = temp_phone_number.slice(0, 3);
  
-     phone_number = temp_phone_number.slice(3);
+     var phone_number = temp_phone_number.slice(3);
  
-     email = $("#email").val();
+     var email = $("#email").val();
  
      $.ajax({
        url: "https://glexas.com/hostel_data/API/test/new_admission_insert.php",
@@ -236,8 +236,8 @@ $(document).ready(function () {
          email: email,
        },
        success: function (data) {
-      if(data.validate_email==='exists'){
-        alert('User Code Already Exists')
+      if(data.status===true){
+        //location.reload();
       }
       else{
         console.log(data);
@@ -247,21 +247,21 @@ $(document).ready(function () {
           alert("Data couldn't be deleted !");
         }
       }
-      // console.log(data);
-      //   //  $("p").text("Hello world!");
-      //    if (data.status === true) {
-      //     $('#add_entry').on({
-      //       click: function() {
-      //           console.log('Added', this);
-      //       }
-      //     })
-      //      // location.reload();
-      //    } else {
-      //      alert("Data couldn't be deleted !");
-      //    }
-       },
+      console.log(data);
+        //  $("p").text("Hello world!");
+         if (data.status === true) {
+          $('#add_entry').on({
+            click: function() {
+                console.log('Added', this);
+            }
+          })
+           // location.reload();
+         } else {
+           alert("Data couldn't be deleted !");
+         }
+      },
      
    })
-     }
-     )
+    }
+    )
      ;
