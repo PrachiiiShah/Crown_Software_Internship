@@ -6,6 +6,8 @@ var number, error_code;
 
 // here, the index maps to the error code returned from getValidationError - see readme
 // const errorMap = [
+
+
 //     "Invalid number",
 //     "Invalid country code",
 //     "Too short",
