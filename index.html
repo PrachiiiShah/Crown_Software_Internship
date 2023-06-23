@@ -11,6 +11,16 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.4/css/dataTables.jqueryui.min.css">
     <link rel="stylesheet" type="text/css" href="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/16.0.8/css/intlTelInput.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/16.0.8/css/intlTelInput.min.css" /> -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/18.1.6/js/intlTelInput-jquery.js"> -->
+    <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/intlInputPhone.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!-- intl-tel-input library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
 
 </head>
 
@@ -34,10 +44,67 @@
                     <th>Action</th>
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">+</button>
                     <!-- <button id="openPopupBtn">Open Popup</button> -->
+                    <!-- <h1>Demo: Pure JavaScript International Telephone Input</h1>
+                    <p>Note: this demo pulls in the pure JavaScript plugin code from <a href="https://codepen.io/jackocnr/pen/ggzEjv" target="_blank">this codepen</a>.</p>
 
+                    <form>
+                        <input type="tel">
+                        <button type="submit">Validate</button>
+                    </form>
+
+                    <p id="result"></p> -->
 
                 </tr>
             </thead>
+            <!-- <div class="jquery-script-ads">
+                <script type="text/javascript"> -->
+            <!--
+                   // google_ad_client = "ca-pub-2783044520727903";
+                    /* jQuery_demo */
+                   // google_ad_slot = "2780937993";
+                    //google_ad_width = 728;
+                   // google_ad_height = 90;
+                    //-->
+            <!-- </script> -->
+            <!-- <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div>
+            <div class="jquery-script-clear"></div>
+
+
+            <form>
+                <h1>jQuery IntlInputPhone Plugin Demo</h1>
+                <div class="input-phone"></div>
+            </form>
+
+            <script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+            <script src="js/intlInputPhone.min.js"></script>
+
+            <script>
+                $(document).ready(function() {
+                    $('.input-phone').intlInputPhone();
+                })
+            </script>
+            <script type="text/javascript">
+                var _gaq = _gaq || [];
+                _gaq.push(['_setAccount', 'UA-36251023-1']);
+                _gaq.push(['_setDomainName', 'jqueryscript.net']);
+                _gaq.push(['_trackPageview']);
+
+                (function() {
+                    var ga = document.createElement('script');
+                    ga.type = 'text/javascript';
+                    ga.async = true;
+                    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                    var s = document.getElementsByTagName('script')[0];
+                    s.parentNode.insertBefore(ga, s);
+                })();
+            </script> -->
+            <!-- //-------------- -->
+            <!-- <input type="tel" id="phoneInput">
+            <select id="countryCodeDropdown"></select> -->
+            <!-- =================== -->
+
             <div class="popup" id="popup">
                 <h2>This is a popup!</h2>
                 <form>
@@ -102,6 +169,7 @@
                         <div class="form-group">
                             <label for="usertype">User Code</label>
                             <input type="text" class="form-control" id="user_code" placeholder="Enter User Type" required>
+                            <!-- <span class="error_form" id="usercode_error_message"></span> -->
                         </div>
                         <div class="form-group">
                             <label for="first_name">First Name</label>
@@ -116,17 +184,46 @@
                             <input type="text" class="form-control" id="last_name" placeholder="Enter Last Name" required>
                         </div>
                         <div class="form-group">
-                            <label for="phone_number">Phone Number</label>
-                            <input type="text" class="form-control" id="phone_number" placeholder="Enter Phone Number" required>
+                            <label for="phone_number" required>Phone Number</label>
+                            <input type="tel" id="phone_number" placeholder="Enter phone number">
+                            <!-- <input type="tel" id="phone"> -->
+                            <!-- <button type="submit">Submit</button> -->
+                            <!-- <span id="valid-msg" class="hide">✓ Valid</span>
+    <p id="output">Please enter a valid number below</p> -->
+                            <script src="js/phone_number_validation.js"></script>
+                            <!-- <input type="text" class="form-control" id="phone_number" placeholder="Enter Phone Number" required> -->
                         </div>
+
+
+
+
+                        <!-- <select name="country" class="form-control" id="country">
+                            <option data-country-code="DZ" value="213">Algeria</option>
+                            <option data-country-code="AD" value="376">Andorra</option>
+                            <option data-country-code="AO" value="244">Angola</option>
+                            <option data-country-code="AI" value="1264">Anguilla</option>
+                            <option data-country-code="AG" value="1268">Antigua &amp; Barbuda
+                            </option>
+                          </select>
+                        <div class="col-md-12 form-group">
+                            <input type="tel" id="txtPhone" class="txtbox" />
+                        </div> -->
+                        <!-- <label for="phone_country_code">Phone Country Code</label> -->
+                        <!-- <input class="form-control" id="phone_country_code" required> -->
+
+                        <!-- <button type="submit">Submit</button> -->
+                        <span id="error-msg" class="hide"></span>
+                        <!-- <span id="valid-msg" class="hide">✓ Valid</span> -->
+                        <!-- <p id="output">Please enter a valid number below</p> -->
+
                         <div class="form-group">
-                            <label for="phone_country_code">Phone Country Code</label>
-                            <input type="text" class="form-control" id="phone_country_code" placeholder="Enter Country Code" required>
+
+                            <!-- <select id="countryCodeDropdown" name="countryCode"></select> -->
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
                             <input type="email" class="form-control" id="email" placeholder="Enter Your Email" required>
-                            <td><span class="email_val validation"></span></td>
+                            <!-- <td><span class="email_val validation"></span></td> -->
                         </div>
                         <!-- <button type="submit" class="btn btn-primary mt-2" id="update_entry">Update</button> -->
                         <button type="submit" class="btn btn-primary mt-2" id="add_entry">Add Details</button>
@@ -162,6 +259,7 @@
     <!-- <script src="jsd/code.jquery.com_jquery-3.7.0.min.js"></script> -->
     <!-- <script type="text/javascript" src="js/script.js"></script> -->
     <script src="js/script.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 
 </body>

@@ -55,8 +55,113 @@ $(document).ready(function () {
      },
    });
  });
- 
- 
+ //-----------------
+// $(document).ready(function() {
+//   // Initialize the International Telephone Input plugin
+//   $("#phone_number").intlTelInput({
+//     initialCountry: "us", // Set the initial country (optional)
+//     separateDialCode: true, // Display the dial code separately (optional)
+//     preferredCountries: ["us", "gb", "fr", "de"], // Set preferred countries (optional)
+//     // utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js" // URL of the utils.js file
+//   });
+
+//   $('#exampleModal').submit(function(event) {
+//     event.preventDefault(); // Prevent the form from submitting normally
+
+//     // Get form values
+//     var phoneNumber = $('#phone_number').val();
+
+//     // Perform validation
+//     if (!phoneNumber) {
+//       alert('Please enter a phone number');
+//       return;
+//     }
+
+//     // Make the AJAX API call
+//     $.ajax({
+//       url: 'your-api-url',
+//       method: 'POST',
+//       data: {
+//         phoneNumber: phoneNumber
+//       },
+//       success: function(response) {
+//         // Handle the API response
+//         console.log('API response:', response);
+//       },
+//       error: function(xhr, status, error) {
+//         // Handle API call errors
+//         console.error('API call failed:', error);
+//       }
+//     });
+//   });
+// });
+
+//---------------
+
+//  $("#phone_number").intlTelInput({
+//   initialCountry: "auto",
+//   geoIpLookup: function(callback) {
+//     jQuery.get('https://ipinfo.io',function(){}, "jsonp").always(function(resp){
+//       var countryCode = (resp && resp.country) ? resp.country : "";
+//       callback(countryCode);
+//     })       
+//   },
+//    utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+//  })
+//--------------------
+//  var input = document.querySelector("input"),
+//     form = document.querySelector("form"),
+//     result = document.querySelector("#result");
+
+// var iti = intlTelInput(input, {
+//   initialCountry: "us"
+// });
+
+// form.addEventListener("submit", function(e) {
+//   e.preventDefault();
+//   var num = iti.getNumber(),
+//       valid = iti.isValidNumber();
+//   result.textContent = "Number: " + num + ", valid: " + valid;
+// }, false);
+
+// input.addEventListener("focus", function() {
+//   result.textContent = "";
+// }, false);
+
+//-------------------
+// var countryCodes = [
+//   { code: '+1', name: 'United States' },
+//   { code: '+44', name: 'United Kingdom' },
+//   { code: '+91', name: 'India' },
+//   // Add more country codes here
+// ];
+// $(document).ready(function() {
+//   var dropdown = $('#countryCodeDropdown');
+  
+//   $.each(countryCodes, function(index,item) {
+//       dropdown.append($('<option>', {
+//           value: item.code,
+//           text: item.name + ' ' + item.code
+//       }));
+//   });
+// });
+
+
+
+//---------------
+
+
+//--------------------
+//  $(function() {
+//   $("#country").change(function() {
+//     let countryCode = $(this).find('option:selected').data('country-code');
+//     let value = "+" + $(this).val();
+//     $('#txtPhone').val(value).intlTelInput("setCountry", countryCode);
+//   });
+  
+//   var code = "+977";
+//   $('#txtPhone').val(code).intlTelInput();
+// });
  
  $(document).ready(function() {
  
@@ -195,7 +300,55 @@ $(document).ready(function () {
 //      email_error = true;
 //    }
 //  }
- 
+
+// function ckeck_usercode(){
+//   var pattern=/^[a-zA-Z]*$/;
+//   var user_code=$("#user_code").val();
+//   if(pattern.test(user_code)&& user_code!==''){
+// $("usercode_error_message").hide();
+// $("#user_code").css("border","2px solid green");
+//   }
+//   else{
+//     $("usercode_error_message").html("Should contain only characters");
+//     $("usercode_error_message").show();
+//     $("#user_code").css("border","2px solid red");
+//     user_code_error=true;
+//   }
+// }
+
+
+ $(document).ready(function(){
+  $('#exampleModal').submit(function(event){
+    event.preventDefault();
+
+    var user_code=$('#user_code').val();
+
+    if(!user_code){
+      // alert('Valid');
+      return;
+    }
+
+    var regex=/^[A-Za-z]+$/;
+    if(!regex.test(user_code)){
+      alert('Invalid Usercode');
+      return;
+    }
+    $.ajax({
+      url:'https://glexas.com/hostel_data/API/test/check_username.php',
+      method:'POST',
+      data:{user_code:user_code},
+      success:function(data){
+        if(data.status==true){
+          alert('Valid');
+        }
+        else{
+          alert('Invalid usercode');
+        }
+      }
+    })
+  })
+ });
+
  $("#exampleModal").on(
    "click",
    "#add_entry",
@@ -203,7 +356,7 @@ $(document).ready(function () {
     //  var temp_phone_number;
     //  console.log("hello");
     //  event.preventDefault();
-    //  validate_user_code();
+    // validate_user_code();
     //  validate_first_name();
     //  validate_middle_name();
     //  validate_last_name();
@@ -214,12 +367,13 @@ $(document).ready(function () {
      var first_name = $("#first_name").val();
      var middle_name = $("#middle_name").val();
      var last_name = $("#last_name").val();
+ var phone_number=$('#phone').val();
+  var phone_country_code=$('#phone_country_code').val();
+    //  var temp_phone_number = $("#phone_number").val();
  
-     var temp_phone_number = $("#phone_number").val();
+    //  var phone_country_code = temp_phone_number.slice(0, 3);
  
-     var phone_country_code = temp_phone_number.slice(0, 3);
- 
-     var phone_number = temp_phone_number.slice(3);
+    //  var phone_number = temp_phone_number.slice(3);
  
      var email = $("#email").val();
  
@@ -234,34 +388,19 @@ $(document).ready(function () {
          phone_number: phone_number,
          phone_country_code: phone_country_code,
          email: email,
+        
        },
        success: function (data) {
       if(data.status===true){
         //location.reload();
       }
       else{
-        console.log(data);
-        if (data.status === true) {
-          location.reload();
-        } else {
           alert("Data couldn't be deleted !");
         }
-      }
-      console.log(data);
-        //  $("p").text("Hello world!");
-         if (data.status === true) {
-          $('#add_entry').on({
-            click: function() {
-                console.log('Added', this);
-            }
-          })
-           // location.reload();
-         } else {
-           alert("Data couldn't be deleted !");
+
          }
-      },
-     
+      
+    
    })
-    }
-    )
-     ;
+    })
+ ;

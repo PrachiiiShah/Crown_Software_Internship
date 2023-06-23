@@ -75,5 +75,24 @@ table tfoot tr th {
     padding: 20px;
 }
 
+.hide {
+    display: none;
+}
+
+#error-msg {
+    color: red;
+    /* border: 2px solid red; */
+}
+
+#valid-msg {
+    color: green;
+    /* border: 2px solid red; */
+}
+
+#output {
+    color: red;
+    /* border: 2px solid red; */
+}
+
 
 /* New */
