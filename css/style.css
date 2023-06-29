@@ -79,20 +79,34 @@ table tfoot tr th {
     display: none;
 }
 
-#error-msg {
-    color: red;
-    /* border: 2px solid red; */
-}
+
+/* #error-msg {
+    color: red; */
+
+
+/* border: 2px solid red; */
+
+
+/* }
 
 #valid-msg {
-    color: green;
-    /* border: 2px solid red; */
-}
+    color: green; */
 
-#output {
-    color: red;
-    /* border: 2px solid red; */
-}
+
+/* border: 2px solid red; */
+
+
+/* } */
+
+
+/* #output {
+    color: red; */
+
+
+/* border: 2px solid red; */
+
+
+/* } */
 
 
 /* New */

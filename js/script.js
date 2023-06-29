@@ -476,6 +476,7 @@ console.log(abc);
   //   //   console.log(error);
   //   // }
   // });
+  
 
   var first_name = $("#first_name").val();
   var middle_name = $("#middle_name").val();
