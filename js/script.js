@@ -406,7 +406,38 @@ $(document).ready(function () {
   //   });
   // });
 
+  // $(document).ready(function() {
+  //   $('#exampleModal').submit(function() {
+      
 
+  //     var user_code = $('#user_code').val();
+
+  //     // Validation passed, proceed with Ajax request
+  //     $.ajax({
+  //       url: 'https://glexas.com/hostel_data/API/test/check_username.php', // Replace with the URL of your server-side script to check if the user code is already taken
+  //       type: 'POST',
+  //       data: { user_code: user_code },
+  //       success: function(data) {
+  //         if (data === 'taken') {
+  //           // Display error message
+  //           $('#errorMessage').text('User code is already taken.');
+  //         } else if (data === 'success') {
+  //           // Add the form details to the table
+  //           var newRow = '<tr><td>' + user_code + '</td></tr>';
+  //           $('#dataTable tbody').append(newRow);
+
+  //           // Reset the form
+  //           // $('#userCodeForm')[0].reset();
+  //         } else {
+  //           alert('Error: ' + response);
+  //         }
+  //       },
+  //       error: function(xhr, status, error) {
+  //         alert('Error: ' + error);
+  //       }
+  //     });
+  //   });
+  // });
 
 $("#exampleModal").on("click", "#add_entry", function () {
 
@@ -468,38 +499,167 @@ console.log(abc);
         // alert('User code can only contain alphabets.');
         return;
       }
-    
+      else{
+        $("#errorMessage").hide();
+      }
 
     
     console.log(phone_number);
-  $.ajax({
-    url: "https://glexas.com/hostel_data/API/test/new_admission_insert.php",
-    method: "POST",
-    data: {
-      user_code: user_code,
-      first_name: first_name,
-      middle_name: middle_name,
-      last_name: last_name,
-    phone_number: phone_number,
-    phone_country_code:phone_country_code,
-      email: email,
-    },
+    
   
-    success: function (data) {console.log("hi");
+      var user_code=$(this).val();
+  
+           $.ajax({
+                   url: "https://glexas.com/hostel_data/API/test/check_username.php",
+                 method: "POST",
+                 data: {
+                      user_code: user_code
+                  },
+                 
+                   success: function (data) {
+                  //     // $('#ucode_response').html(data);
+                       // console.log("hurre");
+                      if(data != '0'){
+                        console.log("no");
+                        alert("User Code Already Taken");
+                        $('#availability').html('<span class="text-danger">User not valid</span>');
+                  //       // document.getElementById("user_code").value="";
+                  //       // return false;
+                  // $("#submit").attr("disabled", true);
+                       }
+                      else{
+                         console.log("yes");
+                        // return true;
+                        $.ajax({
+                          url: "https://glexas.com/hostel_data/API/test/new_admission_insert.php",
+                          method: "POST",
+                          data: {
+                            user_code: user_code,
+                            first_name: first_name,
+                            middle_name: middle_name,
+                            last_name: last_name,
+                          phone_number: phone_number,
+                          phone_country_code:phone_country_code,
+                            email: email,
+                          },
+                        
+                          success: function (data) {console.log("hi");
+                      
+                            if (data.status === true) {
+                      
+                  //     $.ajax({
+                  // url: "https://glexas.com/hostel_data/API/test/check_username.php",
+                  // method: "POST",
+                  // data: {
+                  //     user_code: user_code
+                  // },
+                  // success: function (data) {
+                  //     // $('#ucode_response').html(data);
+                  //     // console.log("hurre");
+                  //     if(data>'0'){
+                  //       console.log("no");
+                  //       alert("User Code Already Taken");
+                  //       // document.getElementById("user_code").value="";
+                  //       // return false;
 
-      if (data.status === true) {
-     
-
-        console.log("hiii");
-        $(".loader").hide();
-        $(".data-table").show();
-        location.reload();
-        //location.reload();
-      } else {
-        alert("Data couldn't be deleted !");
-      }
-    },
-  });
+                  //     }
+                  //      else{
+                  //       console.log("ha");
+                  //      }
+                  //     }
+                  //     })
+                        // $(document).ready(function() {
+                        //   $("#user_code").click(function () {
+                        //             var user_code = $(this).val();
+                                  
+                        //         });
+                        // //   $('#exampleModal').on("click","#first_name",function(event) {
+                        // //     event.preventDefault();
+                      
+                        // //     var user_code = $('#user_code').val();
+                      
+                        // //     // Validation passed, proceed with Ajax request
+                        // //     $.ajax({
+                        // //       url: 'https://glexas.com/hostel_data/API/test/check_username.php', // Replace with the URL of your server-side script to check username availability
+                        // //       type: 'GET',
+                        // //       data: { user_code: user_code },
+                        // //       success: function(data) {
+                        // //         // if (data === 'available') {
+                        // //         //   $('#availabilityMessage').text('Username is available.');
+                        // //         // } 
+                        // //         if (data === 'taken') {
+                        // //           $('#ucode_response').text('Username is already taken.');
+                        // //         } else {
+                        // //           console.log("nai lidhi");
+                        // //         }
+                        // //       },
+                        // //       // error: function(xhr, status, error) {
+                        // //       //   $('#ucode_response').text('Error: ' + error);
+                        // //       // }
+                        // //     });
+                        // //  });
+                        // });
+                      
+                      
+                      
+                      
+                             
+                              //   var user_code = $("#user_code").val();
+                              //   $.ajax({
+                              //     url: 'https://glexas.com/hostel_data/API/test/new_admission_list.php', // Replace with the URL of your server-side script to check if the user code is already taken
+                              //     type: 'POST',
+                              //     data: { user_code: user_code },
+                              //     success: function(data) {
+                                   
+                        
+                              //       // var isTaken = data.isTaken;
+                              //       //     if (isTaken) {
+                              //       //       alert("taken");
+                              //       //       $("#errorMessage").show();
+                              //       //     } else {
+                              //       //       $("#errorMessage").hide();
+                              //       //       // this.submit();
+                              //       //     }
+                              //       console.log("error");
+                              //       if (data==='exsits') {
+                              //         // Display error message
+                              //         $('#errorMessage').text('User code is already taken.');
+                                     
+                              //       } 
+                              //       // else if (data === 'success') {
+                              //       //   // Add the form details to the table
+                              //       //   var newRow = '<tr><td>' + user_code + '</td></tr>';
+                              //       //   $('#dataTable tbody').append(newRow);
+                          
+                              //       //   // Reset the form
+                              //       //   // $('#userCodeForm')[0].reset();
+                              //        //}
+                              //         else {
+                              //         // alert('Error: ' + response);
+                              //         console.log("available");
+                              //       }
+                              //     },
+                              //     // error: function(xhr, status, error) {
+                              //     //   alert('Error: ' + error);
+                              //     // }
+                                
+                              // });
+                              
+                      
+                              // console.log("hiii");
+                              // $(".loader").hide();
+                              // $(".data-table").show();
+                              // location.reload();
+                            //  location.reload();
+                            } else {
+                              alert("Data couldn't be deleted !");
+                            }
+                          },
+                        });
+                     }
+                  }
+              });
+           
 });
 console.log('hello');
 });
