@@ -338,6 +338,7 @@ $(document).ready(function () {
 
   // $("#exampleModal").on("click", "#user_code", function (event) {
   //   var user_code = $("#user_code").val();
+  //   console.log("i touc user code");
   //   $.ajax({
   //     url: "https://glexas.com/hostel_data/API/test/check_username.php",
   //     method: "POST",
@@ -357,9 +358,59 @@ $(document).ready(function () {
   //     // }
   //   });
   // });
+  
+//  function validate_user_code() {
+//   var validate_user_code = new RegExp("^[a-zA-Z]+$");
+//   user_code = $("#user_code").val();
+//   if (validate_user_code.test(user_code)) {
+//     user_code_error = false;
+//     $("#user_code").css("border", "2px solid green");
+//     this.submit();
+//   } else {
+//     $("#user_code").css("border", "2px solid red");
+//     user_code_error = true;
+//   }
+// }
+
+
+//   $(document).ready(function() {
+//     // Listen for form submission
+//     $('#exampleModal').on(function() {
+//       // Prevent the form from submitting normally
+
+//       // Get the user code from the input field
+//       var user_code = $('#user_code').val();
+// console.log("gpt");
+//       // Perform validation using regular expression
+//       var regex = /^[A-Za-z]+$/; // Only allow alphabets
+//       if (!regex.test(user_code)) {
+//         // Validation failed
+//         alert('User code can only contain alphabets.');
+//         return;
+//       }
+
+  //     // Validation passed, proceed with Ajax request
+  //     $.ajax({
+  //       url: 'your_server_script.php', // Replace with the URL of your server-side script
+  //       type: 'POST',
+  //       data: { user_code: user_code },
+  //       success: function(response) {
+  //         // Handle the server response here
+  //         alert('Validation successful. Server response: ' + response);
+  //       },
+  //       error: function(xhr, status, error) {
+  //         // Handle errors here
+  //         alert('Error: ' + error);
+  //       }
+  //     });
+  //   });
+  // });
+
 
 
 $("#exampleModal").on("click", "#add_entry", function () {
+
+  
   //  var temp_phone_number;
   //  console.log("hello");
   //  event.preventDefault();
@@ -374,6 +425,27 @@ var abc=$(".iti__selected-flag").text();
 console.log(abc);
   // validate_phone_number();
   var user_code = $("#user_code").val();
+  // validate_user_code();
+  // console.log("i check");
+  // $.ajax({
+  //   url: "https://glexas.com/hostel_data/API/test/check_username.php",
+  //   method: "POST",
+  //   data: { user_code: user_code },
+  //   success: function (data) {
+  //     var isTaken = data.isTaken;
+  //     if (isTaken) {
+  //       alert("taken");
+  //       $("#errorMessage").show();
+  //     } else {
+  //       $("#errorMessage").hide();
+  //       // this.submit();
+  //     }
+  //   },
+  //   // error: function(xhr,status,error){
+  //   //   console.log(error);
+  //   // }
+  // });
+
   var first_name = $("#first_name").val();
   var middle_name = $("#middle_name").val();
  var last_name = $("#last_name").val();
@@ -389,6 +461,16 @@ console.log(abc);
   //   var phone_number = temp_phone_number.slice(3);
 
     var email = $("#email").val();
+    var regex = /^[A-Za-z0-9]+$/; // Only allow alphabets
+      if (!regex.test(user_code)) {
+        // Validation failed
+        $("#errorMessage").show();
+        // alert('User code can only contain alphabets.');
+        return;
+      }
+    
+
+    
     console.log(phone_number);
   $.ajax({
     url: "https://glexas.com/hostel_data/API/test/new_admission_insert.php",
@@ -406,6 +488,8 @@ console.log(abc);
     success: function (data) {console.log("hi");
 
       if (data.status === true) {
+     
+
         console.log("hiii");
         $(".loader").hide();
         $(".data-table").show();
@@ -479,7 +563,7 @@ console.log('hello');
 //   }
 // });//---------------
 //  function validate_user_code() {
-//   var validate_user_code = new RegExp("^[a-zA-Z_.,!@#$%^&*₹]+$");
+//   var validate_user_code = new RegExp("^[a-zA-Z]+$");
 //   user_code = $("#user_code").val();
 //   if (validate_user_code.test(user_code)) {
 //     user_code_error = false;
