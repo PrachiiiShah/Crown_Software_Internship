@@ -519,7 +519,7 @@ console.log(abc);
                    success: function (data) {
                   //     // $('#ucode_response').html(data);
                        // console.log("hurre");
-                      if(data != '0'){
+                      if(data > '0'){
                         console.log("no");
                         alert("User Code Already Taken");
                         $('#availability').html('<span class="text-danger">User not valid</span>');
@@ -646,10 +646,10 @@ console.log(abc);
                               // });
                               
                       
-                              // console.log("hiii");
-                              // $(".loader").hide();
-                              // $(".data-table").show();
-                              // location.reload();
+                              console.log("hiii");
+                              $(".loader").hide();
+                              $(".data-table").show();
+                              location.reload();
                             //  location.reload();
                             } else {
                               alert("Data couldn't be deleted !");
