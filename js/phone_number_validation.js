@@ -1,4 +1,7 @@
 const input = document.querySelector("#phone_number");
+//-new
+// const input1 = document.querySelector("#phone_number1");
+// //
 const output = document.querySelector("#output");
 const error_msg = document.querySelector("#error-msg");
 const valid_msg = document.querySelector("#valid-msg");
